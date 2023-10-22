@@ -35,7 +35,7 @@ function MyVerticallyCenteredModal(props) {
 }
 
 export default function Navigationbar(){
-    const {user, setSelectedChat, chats, setChats} = ChatState();
+    const {user, setSelectedChat, chats, setChats} = ChatState(); 
 
     //modal states
     const [modalShow, setModalShow] = useState(false);
@@ -93,7 +93,6 @@ export default function Navigationbar(){
         <>
             <Navbar collapseOnSelect expand="lg" bg="dark" data-bs-theme="dark">
             <Container className='d-flex justify-content-around' fluid>
-
                 <Container fluid>
                 {user && 
                 <InputGroup size='sm' className='w-50'>
@@ -103,7 +102,6 @@ export default function Navigationbar(){
                     </Button>
                 </InputGroup>}
                 </Container>
-
 
                 <Container>
                 <Navbar.Brand className='mx-2' href="#">
@@ -117,17 +115,6 @@ export default function Navigationbar(){
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Container className="d-flex justify-content-between mx-5">
-                <Dropdown>
-                    <Dropdown.Toggle className='mx-2' variant="outline-light" id="dropdown-autoclose-true">
-                    <i className="fa-solid fa-bell"></i>
-                    </Dropdown.Toggle>
-
-                    <Dropdown.Menu className='pull-left' drop={'down-centered'}>
-                        <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                        <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                        <Dropdown.Item href="#">Menu Item</Dropdown.Item>
-                    </Dropdown.Menu>
-                </Dropdown>
 
                 <Dropdown>
                     <Dropdown.Toggle className='mx-2' variant="outline-light" id="dropdown-autoclose-true">

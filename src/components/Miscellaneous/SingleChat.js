@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import UserListItem from "../UserListItem/UserListItem";
 import ScrollableChat from "./ScrollableChat";
+import { io } from "socket.io-client";
 
 function SingleChatModal(props) {
     const {user, selectedChat} = ChatState();
@@ -90,7 +91,7 @@ function GroupChatModal({show, onHide, fetchAgain, setFetchAgain, fetchMessages}
                 chatId: selectedChat._id,
                 chatName: groupChatName
             },config)
-            console.log(data);
+            
             setSelectedChat(data);
             setFetchAgain(!fetchAgain);
             setRenameLoading(false);
@@ -237,10 +238,14 @@ function GroupChatModal({show, onHide, fetchAgain, setFetchAgain, fetchMessages}
     );
 }
 
+const ENDPOINT = "http://localhost:4000";
+var socket;
+
 const SingleChat = ({fetchAgain, setFetchAgain}) => {
     const[messages, setMessages] = useState([]);
     const[loading, setLoading] = useState(false);
     const[newMessage, setNewMessage] = useState();
+    const[socketConnected, setSocketConnected] = useState(false);
 
     //modal states
     const [modalShowA, setModalShowA] = useState(false); //profile
@@ -260,13 +265,20 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
 
             const {data} = await axios.get(`http://localhost:4000/api/message/${selectedChat._id}`, config)
 
-            console.log(messages);
             setMessages(data);
             setLoading(false);
+
+            socket.emit('join chat', selectedChat._id);
         }catch(error){
             console.log(error.message);
         }
     }
+
+    useEffect(() => {
+        socket = io(ENDPOINT);
+        socket.emit('setup', user);
+        socket.on('connection', () => setSocketConnected(true))
+    }, [])
 
     useEffect(() => {
         fetchMessages();
@@ -289,7 +301,8 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
                     content: newMessage,
                     chatId: selectedChat._id,
                 }, config)
-                console.log(data);
+
+                socket.emit('new message', data);
                 setMessages([...messages, data]);
             }catch(e){
                 console.log(e);
