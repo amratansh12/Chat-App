@@ -1,70 +1,53 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#  IBY-Chat-Assignment 
 
-## Available Scripts
+#### Name : Amratansh Shrivastava
+#### University : IIT Roorkee
+#### Department : Production and Industrial Engineering
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+##  Project Overview
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+This repository contains the source code for the IBY-Chat-Assignment. This repository contains the frontend of the chat application written in ReactJS. It utilizes various components from the Bootstrap library for building the user interface and has integrated icons from the Font Awesome library to enhance the visual experience. I have implemented axios for making fetch requests to the backend. 
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- ReactJS : The frontend is built using ReactJS, a popular JavaScript library for building user interfaces.
 
-### `npm run eject`
+- Bootstrap Components : The project leverages a variety of Bootstrap components to create a sleek and responsive user interface, ensuring a consistent and visually pleasing design.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Font Awesome Icons : To enhance the visual appeal and user experience, several icons have been incorporated from the Font Awesome library.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Axios for Backend Requests : Axios, a promise-based HTTP client, is used to make requests to the backend part of the application, enabling efficient communication between the frontend and backend.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Minimalist UI and UX : The user interface (UI) and user experience (UX) design of the application are deliberately kept minimalist, focusing on simplicity and ease of use. This approach ensures that users can navigate the application with ease.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Registration and Authentication Forms : The project features appealing and user-friendly registration and authentication forms, making it easy for users to sign up and log in to the chat application.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+To install my project on your machine, Fork this repository and then clone it to your machine.
 
-### Code Splitting
+```bash
+  git clone <repository-url>
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Now, install all the dependencies using npm.
+```bash
+    npm install
+```
 
-### Analyzing the Bundle Size
+The project is setup on your machine. To run the project, enter the following.
+```bash
+    npm run start
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Reach Out
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for checking out the IBY-Chat-Assignment project! If you have any questions or suggestions, please feel free to reach out.
