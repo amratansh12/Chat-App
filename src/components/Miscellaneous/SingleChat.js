@@ -91,7 +91,6 @@ function GroupChatModal({show, onHide, fetchAgain, setFetchAgain, fetchMessages}
                 chatId: selectedChat._id,
                 chatName: groupChatName
             },config)
-            
             setSelectedChat(data);
             setFetchAgain(!fetchAgain);
             setRenameLoading(false);
@@ -239,7 +238,7 @@ function GroupChatModal({show, onHide, fetchAgain, setFetchAgain, fetchMessages}
 }
 
 const ENDPOINT = "http://localhost:4000";
-var socket;
+var socket, selectedChatCompare;
 
 const SingleChat = ({fetchAgain, setFetchAgain}) => {
     const[messages, setMessages] = useState([]);
@@ -251,7 +250,7 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
     const [modalShowA, setModalShowA] = useState(false); //profile
     const [modalShowB, setModalShowB] = useState(false); //group chat
 
-    const {user, selectedChat, setSelectedChat} = ChatState();
+    const {user, selectedChat, setSelectedChat, notification, setNotification} = ChatState();
 
     const fetchMessages = async() => {
         if(!selectedChat) return;
@@ -283,8 +282,22 @@ const SingleChat = ({fetchAgain, setFetchAgain}) => {
     useEffect(() => {
         fetchMessages();
 
+        selectedChatCompare = selectedChat;
         //eslint-disable-next-line
     }, [selectedChat])
+
+    useEffect(()=>{
+        socket.on('message received', (newMessageReceived) => {
+            if(!selectedChatCompare || selectedChatCompare._id !== newMessageReceived.chat._id){
+                if(!notification.includes(newMessageReceived)){
+                    setNotification([newMessageReceived, ...notification]);
+                    setFetchAgain(!fetchAgain);
+                }
+            }else{
+                setMessages([...messages, newMessageReceived]);
+            }
+        })
+    })
 
     const sendMessage = async(e) => {
         if(e.key === 'Enter' && newMessage){
