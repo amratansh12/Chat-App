@@ -1,5 +1,5 @@
 
-#  IBY-Chat-Assignment 
+#  IBY-Chat-Assignment Frontend
 
 #### Name : Amratansh Shrivastava
 #### University : IIT Roorkee
